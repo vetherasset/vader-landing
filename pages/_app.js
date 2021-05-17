@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { ChakraProvider } from '@chakra-ui/react'
-import theme from '../themes/vether'
+import theme from '../themes/vader'
 import { Header } from '../components/Header'
 import { Footer } from '../components/Footer'
 

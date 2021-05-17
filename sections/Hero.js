@@ -1,5 +1,5 @@
 import React from 'react'
-import { Flex, Heading, Box, Button, useBreakpointValue } from '@chakra-ui/react'
+import { Flex, Heading, Box, Button, useBreakpointValue, Image } from '@chakra-ui/react'
 import { useRouter } from 'next/router'
 import defaults from '../common/defaults'
 
@@ -44,11 +44,17 @@ export const Hero = (props) => {
 					variant='outline'
 					onClick={startDapp}
 				>
-					Acquire now
+					Use protocol
 				</Button>
 			</Flex>
 
 			<Flex {...style}>
+				<Image
+					src='/webp/hero.webp'
+					width='100%'
+					maxW='520px'
+					alignSelf='center'
+				/>
 			</Flex>
 		</Flex>
 	)
