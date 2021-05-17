@@ -135,7 +135,7 @@ dailyEmission = (maxSupply - currentSupply) / emissionCurve
 
 				<Heading as='h2' size='xs'>Liquidity Incentives</Heading>
 				<Box as='p' textAlign='justify' textStyle='p'>
-				Dividends are paid out to Liquidity Pools, both in the form of VADER and USDYV, as well as paying
+				Dividends are paid out to Liquidity Pools, both in the form of VADER and USDV, as well as paying
 SYNTH stakers. The incentives are synced into pool balances each time a swap is made, so over time
 LPs realise a yield. This yield, as well as slip-based fees, offsets any Impermanent Loss, and the LP
 should always realise a gain after a period of time.
