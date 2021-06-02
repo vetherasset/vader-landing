@@ -33,18 +33,33 @@ export const Hero = (props) => {
 		<Flex {...props} flexWrap={{ base: 'wrap-reverse', md: 'nowrap' }}>
 			<Flex {...style}>
 				<Heading as='h1' size='xl'>
-					Decenetralized liquidity protocol
+					The Father of Decentralized Liquidity
 				</Heading>
 				<Box as='h2' size='md' fontWeight='normal' textAlign='justify'>
-					Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem.
+				Become part of something bigger than yourself, a fairer financial system without a central authority.
+				Swap, LP, borrow, lend, mint interest-bearing synths, and more, in a fairly distributed, governance-minimal protocol built to last.
 				</Box>
 				<Button
-					size='lg'
+					height='auto'
+					width='auto'
 					maxWidth='156px'
 					variant='outline'
 					onClick={startDapp}
 				>
-					Use protocol
+					<Box
+						background='black'
+						_hover={{
+							backgroundImage: 'linear-gradient(90deg,#f472b6  0%, #3b82f6 100%)',
+							backgroundSize: '150% auto',
+							backgroundPosition: 'right center',
+							color: 'black',
+						}}
+						height='auto'
+						width='156px'
+						lineHeight='46px'
+						borderRadius='3px'
+					>Open Dapp
+					</Box>
 				</Button>
 			</Flex>
 

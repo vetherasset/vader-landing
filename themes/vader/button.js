@@ -29,16 +29,17 @@ export default {
 		}),
 		outline: () => ({
 			color: 'accent',
-			borderColor: 'accent',
-			transition: '1s',
-			background: 'transparent',
+			border: 'none',
+			backgroundSize: '150% auto',
+			backgroundImage: 'linear-gradient(90deg,#f472b6  0%, #3b82f6 100%)',
+			p: '1px',
 			_hover: {
-				transition: '1s',
-				color: '#000',
-				background: 'accent'
+				backgroundSize: '150% auto',
+				backgroundPosition: 'right center',
+				backgroundImage: 'linear-gradient(90deg,#f472b6  0%, #3b82f6 100%)',
 			},
 			_active: {
-				bg: '#f472b6',
+				backgroundImage: 'linear-gradient(90deg,#f280bc  0%, #5391f5 100%)',
 			},
 			_disabled: {
 				bg: 'transparent',
