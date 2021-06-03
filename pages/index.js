@@ -6,6 +6,7 @@ import { Features } from '../sections/Features'
 import { Protection } from '../sections/Protection'
 import { Stablecoin } from '../sections/Stablecoin'
 import { Governance } from '../sections/Governance'
+import { Join } from '../sections/Join'
 
 const Home = () => {
 
@@ -20,6 +21,7 @@ const Home = () => {
 				<Protection/>
 				<Stablecoin/>
 				<Governance/>
+				<Join/>
 			</Box>
 		</>
 	)

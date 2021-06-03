@@ -39,7 +39,7 @@ export const Hero = (props) => {
 				Become part of something bigger than yourself, a fairer financial system without a central authority.
 				Swap, LP, borrow, lend, mint interest-bearing synths, and more, in a fairly distributed, governance-minimal protocol built to last.
 				</Box>
-				<Button
+				{/* <Button
 					height='auto'
 					width='auto'
 					maxWidth='156px'
@@ -60,7 +60,7 @@ export const Hero = (props) => {
 						borderRadius='3px'
 					>Open Dapp
 					</Box>
-				</Button>
+				</Button> */}
 			</Flex>
 
 			<Flex {...style}>
@@ -68,7 +68,9 @@ export const Hero = (props) => {
 					src='/webp/hero.webp'
 					width='100%'
 					maxW='520px'
-					alignSelf='center'
+					alignSelf='flex-end'
+					position='absolute'
+					top='69px'
 				/>
 			</Flex>
 		</Flex>

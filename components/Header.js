@@ -66,10 +66,11 @@ export const Header = (props) => {
 				<Button
 					size={size}
 					variant='solid'
+					disabled
 					{...style}
 					onClick={(e) => push(e, defaults.url.dapp)}
 				>
-					Launch Dapp
+					Coming soon
 				</Button>
 			</Flex>
 		</Flex>

@@ -35,6 +35,7 @@ export const Footer = (props) => {
 							<li><Link onClick={(e) => push(e, defaults.url.dapp)}>Launch Dapp</Link></li>
 							<li><Link isExternal href={defaults.url.docs}>Docs</Link></li>
 							<li><Link onClick={(e) => push(e, 'whitepaper')}>Whitepaper</Link></li>
+							<li><Link onClick={(e) => push(e, defaults.url.vetherasset)}>Vether Asset</Link></li>
 						</ul>
 					</GridItem>
 					<GridItem colSpan={1} textAlign={{ base: 'center', sm: 'left' }}>

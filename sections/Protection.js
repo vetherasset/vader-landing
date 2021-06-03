@@ -32,10 +32,10 @@ export const Protection = (props) => {
 
 	return (
 		<Flex {...props} flexWrap={{ base: 'wrap-reverse', md: 'nowrap' }}>
-			<Flex {...style}>
+			<Flex {...style} paddingRight='55px'>
 				<Image
 					src='/png/il-triangle.png'
-					height='430px'
+					paddingLeft='59px'
 					alignSelf='center'
 				/>
 			</Flex>
@@ -45,7 +45,7 @@ export const Protection = (props) => {
 				<Box as='h2' size='md' fontWeight='normal' textAlign='justify'>
 					Provide liquidity for core, curated pools with Impermanent Loss Protection. A&nbsp;reward for those who help build a stronger system, Impermanent Loss Protection covers the risk you take by becoming a longer term core liquidity provider.
 				</Box>
-				<Button
+				{/* <Button
 				 		size='lg'
 						maxW='118px'
 						variant='linkAccent'
@@ -53,7 +53,7 @@ export const Protection = (props) => {
 						onClick={(e) => push(e, defaults.url.dapp)}
 					>
 						Open Dapp
-					</Button>
+					</Button> */}
 			</Flex>
 		</Flex>
 	)
