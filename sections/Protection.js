@@ -31,7 +31,10 @@ export const Protection = (props) => {
 	})
 
 	return (
-		<Flex {...props} flexWrap={{ base: 'wrap-reverse', md: 'nowrap' }}>
+		<Flex {...props}
+		flexWrap={{ base: 'wrap-reverse', md: 'nowrap' }}
+		flexDir={{ base: 'column', md: 'row' }}
+		>
 			<Flex {...style} paddingRight='55px'>
 				<Image
 					src='/png/il-triangle.png'

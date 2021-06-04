@@ -21,13 +21,14 @@ export const Features = (props) => {
 	})
 
 	const row = {
-		flexDirection: 'row',
-		mb: '2.3rem',
+		flexDirection: { base: 'column', md: 'row' },
+		mb: { base: '', md: '2.3rem' }
 	}
 
 	const col = {
-		width: '50%',
-		p: '0 3.33rem',
+		width: { base: '100%', md: '50%' },
+		p: { base: '0 0.3rem', md: '0 3.33rem' },
+		mb: { base: '2.3rem', md: '' }
 	}
 
 	const p = {

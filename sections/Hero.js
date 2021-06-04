@@ -69,8 +69,8 @@ export const Hero = (props) => {
 					width='100%'
 					maxW='520px'
 					alignSelf='flex-end'
-					position='absolute'
-					top='69px'
+					position={{ base: 'relative', lg: 'absolute' }}
+					top={{ md: '-51px', lg: '69px' }}
 				/>
 			</Flex>
 		</Flex>
