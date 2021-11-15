@@ -10,143 +10,84 @@ const WhitePaper = () => {
 				<title>Whitepaper - Vader - decentralized liquidity protocol</title>
 			</Head>
 			<Box maxWidth='55rem' m='0 auto' p={{ base: '3.3rem 1.25rem', md: '3.3rem 2.5rem' }}>
-				<Heading as='h1' size='md'>WHITEPAPER</Heading>
+				<Heading as='h1' size='md' mb='3rem'>WHITEPAPER</Heading>
 				<Heading as='h2' size='sm' textAlign='center'>
-					VADER PROTOCOL: Incentivised liquidity, stable coin and lending platform
+					VADER PROTOCOL: Stablecoin Anchored Automated Market Maker with Protocol Owned Liquidity
 				</Heading>
 				<Box as='p' textAlign='justify' textStyle='p' p='0 3rem'>
-				Vader is a liquidity protocol that combines a collateralized stablecoin with liquidity pools. The stablecoin, USDV, is issued by burning VADER tokens. Liquidity pools either use USDV and VADER as the settlement asset, with a zero-slippage conversion available between the two. A daily emission rate of VADER funds liquidity incentives, a protocol interest rate, impermanent loss protection and a float to facilitate protocol lending. Synthetic assets are minted from liquidity pool shares which are eligible to earn an interest rate, as well as being collateral for borrowing debt against. The collateral is used to pay an interest rate which is added into the pools to increase returns.
+					<b>Abstract.</b> VADER is a liquidity protocol that combines a hybrid algorithmic-collateralized stablecoin with liquidity pools enhanced via synthetic assets. The stablecoin, USDV, is issued by burning VADER tokens and Liquidity pools use USDV as the settlement asset. VADER liquidity incentives finance impermanent loss protection guarantees, thus making VADER pools more attractive to capital. It also enables the purchase of Protocol Owned Liquidity via Bond Sales. Synthetic assets are minted from liquidity pool shares which allow for single side staking with no impermanent loss.
 				</Box>
 
 				<Heading as='h2' size='xs'>Introduction</Heading>
 				<Box as='p' textAlign='justify' textStyle='p'>
-				Stablecoins and synthetic assets are a noble problem to solve. The key problem is a matter of liquidity and sensing the correct purchasing power of assets at all times. In addition, the use of incentives can
-				ensure the maximum uptake of the system and the fast bootstrapping of capital. Existing stablecoms
-				and synthetic asset designs fall short because they use oracles that are not liquidity sensitive and can
-				be manipulated, do not incentivise the makers of liquidity properly, and are not natively interest-bearing.
+					Stablecoins and synthetic assets are a noble problem to solve. The key problem is a matter of liquidity and sensing the correct purchasing power of assets at all times. In addition, the use of incentives can ensure the maximum uptake of the system and the fast bootstrapping of capital especially via Protocol Owned Liquidity. Existing stablecoins and synthetic asset designs fall short because they are reliant on Price Oracles that are not liquidity sensitive, vulnerable to  manipulation, and do not properly incentivise the makers of liquidity.
 				</Box>
 
 				<Box as='p' textAlign='justify' textStyle='p'>
-				Vader is a new form of liquidity protocol that seeks to be self-serving. It uses its own liquidity and awareness of asset purchasing power to support the creation of a collateralized stablecoin. It also is
-				capable of using liquidity units as collateral for synthetic assets, of which it will always have
-				guaranteed redemption liquidity for. It has a fair and transparent incentive strategy to maximise the
-				depth of liquidity pools and adoption of synthetic assets. It uses a liquidity-sensitive fee to ensure safe
-				and sustainable creation of debt, which can increase the capital efficiency of the system.
+					VADER is a new form of liquidity protocol that seeks to be self-serving. It uses its own liquidity and awareness of asset purchasing power to support the creation of a collateralized stablecoin. It also is capable of using liquidity units as collateral for synthetic assets, of which it will always have guaranteed redemption liquidity for. It has a fair and transparent incentive strategy to maximise the depth of liquidity pools and adoption of synthetic assets.
 				</Box>
 
 				<Heading as='h2' size='xs'>Key Features</Heading>
 				<Box as='p' textAlign='justify' textStyle='p'>
-				The following are the key features of Vader Protocol:
+				The following are the key features of VADER Protocol:
 				<br/><br/>
 					<ol style={{ paddingLeft: '2rem' }}>
-						<li style={{ paddingLeft: '3px' }}>Uses a collateralized stablecoin settlement asset</li>
-						<li style={{ paddingLeft: '3px' }}>An ability to burn VADER to mint USDV</li>
+						<li style={{ paddingLeft: '3px' }}>Uses a stablecoin settlement asset.</li>
+						<li style={{ paddingLeft: '3px' }}>An ability to expand and contract the supply of both VADER and USDV.</li>
 						<li style={{ paddingLeft: '3px' }}>Impermanent Loss protection for Liquidity Providers in the pools</li>
 						<li style={{ paddingLeft: '3px' }}>Continuous liquidity pool incentives</li>
-						<li style={{ paddingLeft: '3px' }}>An ability to mint interest-bearing synthetic assets from pool liquidity</li>
-						<li style={{ paddingLeft: '3px' }}>An ability to borrow debt against USDV, VADER or Synthetic Assets</li>
+						<li style={{ paddingLeft: '3px' }}>An ability to mint synthetic assets from pool liquidity.</li>
+						<li style={{ paddingLeft: '3px' }}>Liquidity incentives that fund Protocol Owned Liquidity to reduce rent-seeking costs over time,</li>
 					</ol>
 				</Box>
 
 				<Heading as='h2' size='xs'>Architecture</Heading>
 				<Box as='p' textAlign='justify' textStyle='p'>
-					There are two types of pools in the system, although it is abstracted to the user. The first group of pools are the “Anchor pools” which use VADER as a settlement asset. This allows the system to sense the anchor price, which is the median of the prices of the anchor pools. The second group of pools are the “Asset pools” which use USDV as the base asset, which drives liquidity and demand of the stablecoin. The Anchor pools [VADER:stablecoin] are linked to the Asset pools [USDV:asset] via 0-slippage swaps between USDV and VADER.
+					The system uses a TWAP function to sense the price of VADER in USD allowing for the burn-to-mint of the USDV stablecoin. The Vader Protocol AMM uses USDV as the base asset, which drives liquidity and demand of the stablecoin from launch. Part of the fee it generates from its operations funds a reserve to provide for Impermanent Loss Protection and allows the minting of Synthetic assets. USDV becomes increasingly collateralized over time as the protocol expands its treasury from Bond Sales and fees.
 				</Box>
 
 				<Box as='h3' size='xs' textTransform='uppercase'>VADER Contract</Box>
 				<Box as='p' textAlign='justify' textStyle='p'>
 				VADER has extra functions to ERC20:
 					<ol style={{ paddingLeft: '2rem' }}>
-						<li style={{ paddingLeft: '3px' }}>VADER is minted if VETH is burnt, 1000:1</li>
-						<li style={{ paddingLeft: '3px' }}>VADER is minted if USDV is burnt, in accordance with the inverse Anchor price</li>
-						<li style={{ paddingLeft: '3px' }}>Has a daily emission rate of VADER, which is sent to the USDV Contract</li>
+						<li style={{ paddingLeft: '3px' }}>VADER is minted if VETH is burnt, 10,000:1 via a Merkle snapshot with 50% upfront and 50% vested over 1 year.</li>
+						<li style={{ paddingLeft: '3px' }}>VADER is minted if USDV is burnt, in accordance with the TWAP price.</li>
 					</ol>
 				</Box>
 
 				<Box as='h3' size='xs' textTransform='uppercase'>USDV Contract</Box>
 				<Box as='p' textAlign='justify' textStyle='p'>
-				USDV has extra functions to ERC20:
+					USDV has extra functions to ERC20:
 				<ol style={{ paddingLeft: '2rem' }}>
-						<li style={{ paddingLeft: '3px' }}>USDV is minted if VADER is burt, in accordance with the Anchor price</li>
-						<li style={{ paddingLeft: '3px' }}>...</li>
-						<li style={{ paddingLeft: '3px' }}>Receives VADER from the VADER contract, of which it burns a proportion of it into USDV, then makes that available to be claimed by USDV stakers. The rest it sends to the Router Contract to be used by its Reserve.</li>
+						<li style={{ paddingLeft: '3px' }}>USDV is minted if VADER is burnt, in accordance with the TWAP price.</li>
 					</ol>
 				</Box>
 
-				<Box as='h3' size='xs' textTransform='uppercase'>VADER ROUTER and POOLS Contract</Box>
+				<Heading as='h2' size='xs' textTransform='uppercase'>VADER Token</Heading>
 				<Box as='p' textAlign='justify' textStyle='p'>
-					The ROUTER wraps the POOLS contract which contains the assets in the pools. POOLS maps
-					liquidity ownership of members, which the ROUTER users to enable Impermanent Loss protection.
-					The POOLS Contract is wrapped by the Router. The ROUTER has a reserve which facilitates:
-					<ol style={{ paddingLeft: '2rem' }}>
-						<li style={{ paddingLeft: '3px' }}>Incentives for each pool</li>
-						<li style={{ paddingLeft: '3px' }}>Impermanent Loss Protection</li>
-						<li style={{ paddingLeft: '3px' }}>Minting/Burning of Synthetic Assets</li>
-						<li style={{ paddingLeft: '3px' }}>Protocol Lending</li>
-					</ol>
+					VADER and the TWAP function transmits the “anchor” price of VADER in USD. This allows anyone to burn VADER to mint USDV at 1:1 the TWAP price.
 				</Box>
 
-				<Box as='h3' size='xs' textTransform='uppercase'>VADER FACTORY and SYNTHS Contract</Box>
 				<Box as='p' textAlign='justify' textStyle='p'>
-				An ERC20 Factory is allowed to be called by the Router to deploy and register Synthetic Assets, which are vanilla ERC-20s.
+					VADER is issued 10,000:1 for holders of Vether (VETH) - which itself is distributed via a fair process of Proof-of-Value. Since VETH is acquired only by the provable burning of ETH via a daily auction; it is sybil-resistant, decentralised and has unforgeable costliness.
 				</Box>
 
-				<Box as='h3' size='xs' textTransform='uppercase'>VADER VAULT Contract</Box>
 				<Box as='p' textAlign='justify' textStyle='p'>
-				Allows anyone to lock up Synthetic Assets and earn an interest rate, claimable every block.
+					VADER has a maximum supply of 25bn. 7.5bn is claimed by the holders of VETH, and the additional 12.5 bn is paid out as liquidity incentives, 2.5bn for partnerships and 2.5bn for the team linearly vested over 2 years. 
 				</Box>
 
-				<Box as='h3' size='xs' textTransform='uppercase'>VADER UTILS Contract</Box>
 				<Box as='p' textAlign='justify' textStyle='p'>
-				The Utils contract contains logic for the system.
-				</Box>
-
-				<Box as='h3' size='xs' textTransform='uppercase'>VADER DAO Contract</Box>
-				<Box as='p' textAlign='justify' textStyle='p'>
-				The DAO senses the weight of each member (based on share of the weight in the vault) and allows
-				system parameters to be changed with various consensus levels.
-				</Box>
-
-				<Heading as='h2' size='xs'>VADER Token</Heading>
-				<Box as='p' textAlign='justify' textStyle='p'>
-				There are three use cases of VADER. The first is as a common settlement asset in anchor pools to
-enable the system to sense the purchasing power of a group of stablecoins - this transmits the
-“anchor” price in USD. The second is to allow anyone to burn VADER to mint USDV at 1:1 the
-anchor price. The third is to allow anyone to lock up VADER as collateral for borrowing against.
-				</Box>
-				
-				<Box as='p' textAlign='justify' textStyle='p'>
-				VADER is issued 1000:1 for holders of Vether (VETH) - which itself is distributed via a fair process
-of Proof-of-Value. Since VETH 1s acquired only by the provable burning of ETH; it is sybil-resistant,
-decentralised and has unforgeable costliness. VETH has a maximum supply of 1,000,000 units, issued
-over 10+ years.
-				</Box>
-				<Box as='p' textAlign='justify' textStyle='p'>
-				VADER has a maximum supply of 2bn. 1bn is clarmed by the holders of VETH, and the additional
-1bn is paid out based on a smooth emission curve starting at 50% APY and dropping to roughly 10%
-after 5 years. VADER will continue to pay out until 2bn units have been issued. VADER contains a
-Fee-On-Transfer which is proportional to the current supply, but increases linearly the closer VADER
-is to its Maximum Supply in the range from 0 to 100 Basis Points. As such, the emission rate can be
-offset by the burn rate at some point into the future.
-				</Box>
-				<Box as='p' textAlign='justify' textStyle='p' fontSize='1.05rem' fontStyle='italic'>
-dailyEmission = (maxSupply - currentSupply) / emissionCurve
+					VADER contains a Fee-On-Transfer which is proportional to the current supply, but increases linearly the closer VADER is to its Maximum Supply in the range from 0 to 100 Basis Points.
 				</Box>
 
 				<Heading as='h2' size='xs'>Liquidity Incentives</Heading>
 				<Box as='p' textAlign='justify' textStyle='p'>
-				Dividends are paid out to Liquidity Pools, both in the form of VADER and USDV, as well as paying
-SYNTH stakers. The incentives are synced into pool balances each time a swap is made, so over time
-LPs realise a yield. This yield, as well as slip-based fees, offsets any Impermanent Loss, and the LP
-should always realise a gain after a period of time.
+					Liquidity Incentives are paid out to fund Bond sales that allow for Protocol Owned Liquidity. This ensures long term sustainability as an AMM. Protocol Owned Liquidity is used productively when Slip-based fees generated by LP tokens generate fees and goes to backing the purchasing power of the stablecoin.
 				</Box>
 
 				<Heading as='h2' size='xs'>Impermanent Loss Protection</Heading>
 				<Box as='p' textAlign='justify' textStyle='p'>
-				The deposit value for each member is recorded when they deposit. When they go to withdraw, the
-redemption value is computed. If it is less than the deposit value, the member is paid the deficit from
-the reserve. The protection issued increases from 0 to 100% linearly for 100 days. Coverage is given
-by the following equation:
+				The deposit value for each member is recorded when they deposit. When they go to withdraw, the redemption value is computed. If it is less than the deposit value, the member is paid the deficit from the reserve. The protection issued increases from 0 to 100% linearly for 100 days. Coverage is given by the following equation:
 				</Box>
 				<Box as='p' textAlign='justify' textStyle='p' fontSize='1.05rem' fontStyle='italic'>
 				coverage = (VO - V1) + (AO - A1) * V1/A1<br/>
@@ -155,14 +96,8 @@ by the following equation:
 				</Box>
 
 				<Heading as='h2' size='xs'>Liquidity Pools</Heading>
-				<Box as='p' textAlign='justify' textStyle='p'>Liquidity Pools use either VADER or USDV as the common settlement asset. This allows the system
-to accurately price any pool, as well as sensing purchasing power of its assets. Using USDV as a
-common settlement asset in Asset pools takes away any friction for requiring users hold exposure to a
-particular asset. In fact, all of the VADER Liquidity Pools (Anchor and Asset) are stablecoin-paired
-pools, making Impermanent Loss easy to reason about.</Box>
-				<Box as='p' textAlign='justify' textStyle='p'>The liquidity model includes a liquidity-sensitive slip-based fee. This maximises revenue for liquidity
-providers under high demand of liquidity, and prevents manipulation. It is also necessary to support
-liquidations of collateral. The algorithm is:</Box>
+				<Box as='p' textAlign='justify' textStyle='p'>Liquidity Pools use USDV as the common settlement asset. This allows the system to accurately price any pool, as well as sensing purchasing power of its assets. Using USDV as a common settlement asset in Asset pools takes away any friction for requiring users to hold exposure to a particular asset. In fact, all of the VADER Liquidity Pools are stablecoin-paired pools, making Impermanent Loss easy to reason about.</Box>
+				<Box as='p' textAlign='justify' textStyle='p'>The liquidity model includes a liquidity-sensitive slip-based fee. This maximises revenue for liquidity providers under high demand of liquidity, and prevents manipulation. It is also necessary to support liquidations of collateral. The algorithm is:</Box>
 				<Box as='p' textAlign='justify' textStyle='p' fontSize='1.05rem' fontStyle='italic'>
 				<Image
 					width='82.101945pt'
@@ -172,36 +107,11 @@ liquidations of collateral. The algorithm is:</Box>
 				x: input; X: Input Balance;<br/>
 				y: output; Y: Output Balance;<br/>
 				</Box>
-				<Box as='p' textAlign='justify' textStyle='p'>Slip-based fees break path-independence and a member can theoretically achieve better price
-execution by making smaller trades. This characteristic is actually favourable - smaller trades slow
-down the rate at which a price can change, and the base-layer gas fee paid (fixed in cost) provides a
-lower-level threshold of tolerance. Additionally, there is no freedom of choice of trade size of a
-position when it is liquidated by the protocol, arguably the most important aspect to the system.</Box>
-
-			<Heading as='h2' size='xs'>Anchor Pools</Heading>
-			<Box as='p' textAlign='justify' textStyle='p'>Anchor pools are special pools that specifically have VADER as the base asset. Anyone can create a
-pool, but there are requirements to meet for creating a new Anchor Pool, and only some of them are
-allowed to be part of the pricing mechanism. The conditions to list/delist an anchor pool:
-					<br/><br/>
-					<ol style={{ paddingLeft: '2rem' }}>
-						<li style={{ paddingLeft: '3px' }}>The protocol will start with 5 anchor pools (DAI, USDT, USDC, BUSD, UST)</li>
-						<li style={{ paddingLeft: '3px' }}>Atany stage, an anchor pool can be replaced by another, as long as the conditions are met:</li>
-						<ol style={{ paddingLeft: '2rem'}} type='a' >
-							<li style={{ paddingLeft: '3px' }}>Is within 2% of the price of the other four</li>
-							<li style={{ paddingLeft: '3px' }}>The pool to be replaced is outside 5% of the other four</li>
-							<li style={{ paddingLeft: '3px' }}>Has a depth that exceeds the pool to be replaced (in VADER)</li>
-					</ol>
-					</ol>
-				</Box>
+				<Box as='p' textAlign='justify' textStyle='p'>Slip-based fees break path-independence and a member can theoretically achieve better price execution by making smaller trades. This characteristic is actually favourable - smaller trades slow down the rate at which a price can change, and the base-layer gas fee paid (fixed in cost) provides a lower-level threshold of tolerance.</Box>
 
 				<Heading as='h2' size='xs' textStyle='noLigs'>Synthetic Assets</Heading>
 				<Box as='p' textAlign='justify' textStyle='p'>
-				Synths are issued from swapping from any other asset into Synths across the pool. Instead of the
-paired asset being emitted, the incoming base asset is added to the pool as liquidity, liquidity units are
-issued to account for the new capital and assigned to the protocol, and the synth is minted. When
-synths are swapped back to a token, they are burnt, a pro-rata share of units are deleted, and the base
-asset is moved out. Even though capital is added and removed, the liquidity units that are issued and
-deleted account for the capital such that other passive LPs are not affected.
+					Synths are issued from swapping from any other asset into Synths across the pool. Instead of the paired asset being emitted, the incoming base asset is added to the pool as liquidity, liquidity units are issued to account for the new capital and assigned to the protocol, and the synth is minted. When synths are swapped back to a token, they are burnt, a pro-rata share of units are deleted, and the base asset is moved out. Even though capital is added and removed, the liquidity units that are issued and deleted account for the capital such that other passive LPs are not affected.
 				</Box>
 				<Box as='p' textAlign='justify' textStyle='p' fontSize='1.05rem' fontStyle='italic'>
 				<Image
@@ -213,89 +123,21 @@ deleted account for the capital such that other passive LPs are not affected.
 				b: inputBase; B: baseBalance;<br/>
 				</Box>
 				<Box as='p' textAlign='justify' textStyle='p'>
-				Since synths always have 1:1 purchasing power they do not accrue Impermanent Loss or Yield. In
-fact, any loss or gain is absorbed by the other passive LPs. With IL Protection, other passive LPs
-should never be affected by this.
+					Since synths always have 1:1 purchasing power they do not accrue Impermanent Loss or Yield. In fact, any loss or gain is absorbed by the other passive LPs.
 				</Box>
 				<Box as='p' textAlign='justify' textStyle='p'>
-				Synthetic Assets can be staked to earn an interest rate, or used as collateral for borrowing. Since
-synths are 50% collateralized by the real assets and 50% collateralized by USDV or VADER, heavy
-adoption of synths deepens the liquidity pools and allows the system to naturally scale (or contract).
-				</Box>
-				<Heading as='h2' size='xs' textStyle='noLigs'>Lending</Heading>
-				<Box as='p' textAlign='justify' textStyle='p'>
-				Members can lock up collateral, which includes VADER, USDV or any synthetic asset.
-VADER/USDPYV is taken from the reserve and swapped out to the debt asset. The member’s collateral
-is added to a collateral pool, and their debt recorded. Since there is global collateral pool, members
-can not adjust collateral rate themselves - all debt 1s issued at 150% collateralization when minted.
-Interest is charged against the collateral and paid into the pools of the associated debt asset. A member
-can unlock their collateral by returning their debt amount. If the collateral drops below the debt value,
-then anyone can partially liquidate the pool of collateral, set at 10% each time.
+					With Impermanent Loss Protection, other passive LPs should never be affected by this.
 				</Box>
 				<Box as='p' textAlign='justify' textStyle='p'>
-				The Interest Rate is set to be proportional to the debt loading of the system, so the more debt is issued,
-the higher the rate, which provides a natural throttle. Interest payments are made daily and synced into
-pool balances, which should drive up yield for LPs and encourage deeper liquidity. This will in turn
-reduce the interest rate:
-				</Box>
-				<Box as='p' textAlign='justify' textStyle='p' fontSize='1.05rem' fontStyle='italic'>
-				interestRate = debtIssued / assetDepth
-				</Box>
-				<Box as='p' textAlign='justify' textStyle='p'>
-				The interest paid is tracked, such that when a member leaves, their redeemed collateral is their deposit
-minus their share of the paid interest. If the paid interest for a member is within 99% of their
-collateral, anyone can purge that member and claim the final 1% collateral. This will stop a build up
-of members who have consumed all their collateral in interest, but never leave, which adversely
-affects the accounting for the remaining members.
-				</Box>
-				<Box as='p' textAlign='justify' textStyle='p'>
-				The share of interest is tracked by an accumulator which multiplies time by collateral sizing
-(priceTime). This is updated each time a member borrows or repays, and their share of the interest
-corresponds to their share of the accumulated priceTime.
-				</Box>
-				<Box as='p' textAlign='justify' textStyle='p' fontSize='1.05rem' fontStyle='italic'>
-				interestShare = memberPriceTime / (systemPriceTime + accumulatedPriceTime)
-				</Box>
-				<Heading as='h2' size='xs' textStyle='noLigs'>Liveness</Heading>
-				<Box as='p' textAlign='justify' textStyle='p'>
-					The system is able to conduct its own servicing:
-					<ul style={{ paddingLeft: '2rem' }}>
-							<li style={{ paddingLeft: '3px' }}>Pay the Daily Emission Rate</li>
-							<li style={{ paddingLeft: '3px' }}>Pay the Dividends</li>
-							<li style={{ paddingLeft: '3px' }}>Liquidate collateral 10% at a time</li>
-							<li style={{ paddingLeft: '3px' }}>Pay the Daily Interest Rate</li>
-						</ul>
-				</Box>
-				<Box as='p' textAlign='justify' textStyle='p'>
-					This is done by piggy-backing VADER transfers, USDV transfers and ROUTER actions which query
-	a condition and execute. The member making the transfer/action will subsidise the gas cost at that
-	time. If they don’t wish to pay the gas, they can wait for someone else to do it.
-				</Box>
-				<Heading as='h2' size='xs' textStyle='noLigs'>Reserve</Heading>
-				<Box as='p' textAlign='justify' textStyle='p'>
-				The VADER Vault contract has a reserve, which 1s topped up by emissions every day, and consumed
-by incentives, IL Protection and borrowers. This is to ensure the emission rate of VADER is
-programmed and immutable, and is not dependent on downstream requirements. As such, under heavy
-demand, the Reserve can go to 0, in which case incentives, protection and lending will stop for the
-rest of the day. This is a throttle on the system, preventing run-away inflation.
+					Since synths are 50% collateralized by the real assets and 50% collateralized by USDV, heavy adoption of synths deepens the liquidity pools and allows the system to naturally scale (or contract).
 				</Box>
 				<Heading as='h2' size='xs' textStyle='noLigs'>Governance</Heading>
 				<Box as='p' textAlign='justify' textStyle='p'>
-				System parameters can be tweaked by DAO Governance, but this is strictly limited. The DAO can be
-purged by itself if the system is stable and no more parameters need tweaking. During the bootstrap
-period, the DEPLOYER will retain the ability to skip DAO governance, which can be purged by
-anyone after 3 months. A liquidity limit will be in place at the same time. The reserve of USDV in the
-USDV contract pays USDV stakers, who can decide to pay out grant funding to anyone in the
-ecosystem, (limited to 10% at a time).
+					System parameters can be tweaked by DAO Governance, but this is strictly limited. The DAO can be purged by itself if the system is stable and no more parameters need tweaking.  During the bootstrap period, the DEPLOYER will retain the ability to skip DAO governance, which will eventually deprecate to transition into a full DAO governed model. A liquidity limit will be in place at the same time to help stabilize the protocol in its early stages.
 				</Box>
 				<Heading as='h2' size='xs'>Conclusion</Heading>
 				<Box as='p' textAlign='justify' textStyle='p'>
-				VADER is an incentivised, governance-minimal and cohesive liquidity protocol that can scale itself
-sustainably. A&nbsp;stablecoin is issued by burning VADER, which itself is priced against the median of a
-group of anchor pools. This stablecoin allows the bearer to earn interest, as well as being the
-settlement asset in most of its liquidity pools. Liquidity providers are entitled to Impermanent Loss
-protection whilst they are in the pools. All pools receive daily liquidity incentives. A lending design
-allows members of pools and holders of VADER to lock up collateral to borrow debt against.
+					VADER is an incentivised, governance-minimal and cohesive liquidity protocol that can scale itself sustainably. A stablecoin is issued by burning VADER, which itself is priced against a TWAP across multiple pools.  This stablecoin is the settlement asset in all of its liquidity pools. Liquidity providers are entitled to Impermanent Loss protection whilst they are in the pools. Daily liquidity incentives go towards purchasing Protocol Owned Liquidity for long term sustainability.
 				</Box>
 			</Box>
 		</>
