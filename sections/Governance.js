@@ -51,6 +51,7 @@ export const Governance = (props) => {
 				<Button
 				 		size='lg'
 						maxW='118px'
+						ml='6px'
 						variant='linkAccent'
 						rightIcon={<ArrowForwardIcon />}
 						onClick={(e) => push(e, defaults.url.dapp)}
