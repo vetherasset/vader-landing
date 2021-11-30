@@ -48,15 +48,15 @@ export const Protection = (props) => {
 				<Box as='h2' size='md' fontWeight='normal' textAlign='justify'>
 					Provide liquidity for core, curated pools with Impermanent Loss Protection. A&nbsp;reward for those who help build a stronger system, Impermanent Loss Protection covers the risk you take by becoming a longer term core liquidity provider.
 				</Box>
-				{/* <Button
+				<Button
 				 		size='lg'
 						maxW='118px'
 						variant='linkAccent'
 						rightIcon={<ArrowForwardIcon />}
 						onClick={(e) => push(e, defaults.url.dapp)}
 					>
-						Open Dapp
-					</Button> */}
+						Launch Dapp
+					</Button>
 			</Flex>
 		</Flex>
 	)

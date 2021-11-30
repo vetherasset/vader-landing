@@ -37,15 +37,15 @@ export const Stablecoin = (props) => {
 				<Box as='h2' size='md' fontWeight='normal' textAlign='justify'>
 					Native to the Vader Protocol, USDV is a collateralized stablecoin minted to and from VADER at market value with zero slippage. All Asset Pools pair USDV with another asset, removing exposure to some of the volatility common to token to token pairings.
 				</Box>
-				{/* <Button
+				<Button
 				 		size='lg'
 						maxW='118px'
 						variant='linkAccent'
 						rightIcon={<ArrowForwardIcon />}
 						onClick={(e) => push(e, defaults.url.dapp)}
 					>
-						Open Dapp
-					</Button> */}
+						Launch Dapp
+					</Button>
 			</Flex>
 
 			<Flex {...style}>

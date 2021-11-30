@@ -48,15 +48,15 @@ export const Governance = (props) => {
 				<Box as='h2' size='md' fontWeight='normal' textAlign='justify'>
 					The Vader Protocol is built to be governance minimal. This allows for greater predictability and trust for others to build upon. DAO governance has a limited ability to tweak system parameters and even this ability can be purged should the system prove to be self-sustaining without outside aid.
 				</Box>
-				{/* <Button
+				<Button
 				 		size='lg'
 						maxW='118px'
 						variant='linkAccent'
 						rightIcon={<ArrowForwardIcon />}
 						onClick={(e) => push(e, defaults.url.dapp)}
 					>
-						Open Dapp
-					</Button> */}
+						Launch Dapp
+					</Button>
 			</Flex>
 		</Flex>
 	)
