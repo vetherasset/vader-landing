@@ -67,7 +67,7 @@ export const Hero = (props) => {
 				<Image
 					src='/webp/hero.webp'
 					width='100%'
-					maxW='520px'
+					maxW='495px'
 					alignSelf='flex-end'
 					position={{ base: 'relative', lg: 'absolute' }}
 					top={{ md: '-51px', lg: '69px' }}
