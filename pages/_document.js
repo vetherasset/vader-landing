@@ -13,6 +13,7 @@ class MyDocument extends Document {
 		return (
 			<Html>
 				<Head>
+					<link rel="preload" as="image" href="/webp/hero.webp" />
 					<link rel="preload" href="fonts/sequel.ttf" as="font" crossOrigin="anonymous"/>
 					<link rel="preload" href="fonts/average-sans-v9-latin-regular.woff2" as="font" crossOrigin="anonymous" />
 					<link rel="preload" href="fonts/lato-v17-latin-300.woff2" as="font" crossOrigin="anonymous" />
