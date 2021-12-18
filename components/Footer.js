@@ -35,6 +35,8 @@ export const Footer = (props) => {
 						<Heading as='h3' size='sm'>Resources</Heading>
 						<ul style={{ listStyleType: 'none' }}>
 							<li><Link onClick={(e) => push(e, defaults.url.dapp)}>Launch Dapp</Link></li>
+							<li><Link isExternal href={defaults.url.medium}>Medium</Link></li>
+							<li><Link isExternal href={defaults.url.github}>Github</Link></li>
 							<li><Link isExternal href={defaults.url.docs}>Docs</Link></li>
 							<li><Link onClick={(e) => push(e, 'whitepaper')}>Whitepaper</Link></li>
 						</ul>
@@ -44,12 +46,14 @@ export const Footer = (props) => {
 						<ul style={{ listStyleType: 'none' }}>
 							<li><Link isExternal href={defaults.url.etherscan}>Etherscan</Link></li>
 							<li><Link isExternal href={defaults.url.coingecko}>Coingecko</Link></li>
+							<li><Link isExternal href={defaults.url.coinmarketcap}>CoinMarketCap</Link></li>
 						</ul>
 					</GridItem>
 					<GridItem colSpan={1} textAlign={{ base: 'center', sm: 'left' }}>
 						<Heading as='h3' size='sm'>Exchange</Heading>
 						<ul style={{ listStyleType: 'none' }}>
 							<li><Link isExternal href={defaults.url.uniswap}>Uniswap</Link></li>
+							<li><Link isExternal href={defaults.url.mexc}>MEXC Global</Link></li>
 						</ul>
 					</GridItem>
 					<GridItem colSpan={{ base: '3', sm: '4' }} textAlign={{ base: 'center', sm: 'right' }}>
@@ -57,7 +61,7 @@ export const Footer = (props) => {
 						<ul style={{ listStyleType: 'none' }}>
 							<li><Link isExternal href={defaults.url.discord}>Discord</Link></li>
 							<li><Link isExternal href={defaults.url.telegram}>Telegram</Link></li>
-							<li><Link isExternal href={defaults.url.github}>Github</Link></li>
+							<li><Link isExternal href={defaults.url.twitter}>Twitter</Link></li>
 						</ul>
 					</GridItem>
 				</Grid>
