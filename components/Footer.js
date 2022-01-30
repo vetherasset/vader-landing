@@ -53,6 +53,8 @@ export const Footer = (props) => {
 						<Heading as='h3' size='sm'>Exchange</Heading>
 						<ul style={{ listStyleType: 'none' }}>
 							<li><Link isExternal href={defaults.url.uniswap}>Uniswap</Link></li>
+							<li><Link isExternal href={defaults.url.gateio}>Gate.io</Link></li>
+							<li><Link isExternal href={defaults.url.bkex}>BKEX</Link></li>
 							<li><Link isExternal href={defaults.url.mexc}>MEXC Global</Link></li>
 						</ul>
 					</GridItem>
